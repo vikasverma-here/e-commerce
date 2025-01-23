@@ -1,6 +1,6 @@
 import React from 'react'
 import {assets} from '../assets/adminAssets/assets'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 import { assets as frontendAssets} from '../assets/frontendAssets/assets'
 const Navbar = () => {
@@ -31,12 +31,18 @@ const Navbar = () => {
         <img src={frontendAssets.search_icon} alt="search" className='w-5 cursor-pointer ' />
        <div className="group relative">
         <img src={frontendAssets.profile_icon} alt="profile" className='w-5 cursor-pointer ' />
-        <div className="absolute top-10 right-0 w-40 bg-white shadow-md rounded-md p-2 hidden group-hover:block">
-            <p>Profile</p>
-            <p>Logout</p>
-        </div>
+       <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-4' >
+         <div className='flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded ' >
+            <p className='cursor-pointer hover:text-black' >My Profile</p>
+            <p className='cursor-pointer hover:text-black' >Logout</p>
+            <p className='cursor-pointer hover:text-black' >Orders</p>
+         </div>
        </div>
-
+       </div>
+   <Link to='/cart' >
+   <img src={frontendAssets.cart_icon} alt='cart' className='w-5 cursor-pointer ' />
+   <p className='absolute top-10  bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center' >4</p>
+   </Link>
       </div>
     </div>
   )
