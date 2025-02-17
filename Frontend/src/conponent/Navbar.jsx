@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {assets} from '../assets/adminAssets/assets'
 import { Link, NavLink } from 'react-router-dom'
 
 import { assets as frontendAssets} from '../assets/frontendAssets/assets'
 const Navbar = () => {
+
+  const [visible, setvisible] = useState(false)
+// console.log(visible)
+
   return (
     <div className='flex justify-between items-center py-5 font-medium' >
       <img src={assets.logo} alt='logo' className='w-20' />
@@ -43,7 +47,30 @@ const Navbar = () => {
    <img src={frontendAssets.cart_icon} alt='cart' className='w-5 cursor-pointer ' />
    <p className='absolute top-10  bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center' >4</p>
    </Link>
+
+  <img src={frontendAssets.menu_icon} onClick={()=>setvisible(true)} className='w-5 cursor-pointer sm:hidden' alt="" />
+  
       </div>
+
+{/* {side bar menu for small screen } */}
+
+<div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all duration-300 ${visible? "w-full":"w-0"} `}>
+   
+   <div className='flex flex-col text-gray-500' >
+          <div onClick={()=>setvisible(false)} className='flex items-center gap-4 p-3 cursor-pointer'>
+                <img className="h-4 rotate-180 " src={frontendAssets.dropdown_icon} alt="" />
+                <p>Back</p>
+          </div>
+          <NavLink  onClick={()=>setvisible(false)}  className="py-2 pl-6 border" to="/" >Home</NavLink>
+          <NavLink onClick={()=>setvisible(false)}  className="py-2 pl-6 border" to="/collection" >COLLECTION</NavLink>
+          <NavLink onClick={()=>setvisible(false)}  className="py-2 pl-6 border" to="/about" >ABOUT</NavLink>
+          <NavLink  onClick={()=>setvisible(false)} className="py-2 pl-6 border" to="/contact" >CONTACT</NavLink>
+   </div>
+    
+</div>
+
+
+
     </div>
   )
 }
