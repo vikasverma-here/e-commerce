@@ -10,6 +10,7 @@ import Login from './pages/Login'
 import Contact from './pages/Contact'
 import About from './pages/About'
 import Navbar from './conponent/Navbar'
+import Footer from './conponent/Footer'
 const App = () => {
   return (
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
@@ -28,7 +29,7 @@ const App = () => {
         <Route path='/contact' element={<Contact/>} />
         <Route path='/about' element={<About/>} />
       </Routes>
-    
+   <Footer/> 
     </div>
   )
 }
