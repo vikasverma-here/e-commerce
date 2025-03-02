@@ -11,13 +11,14 @@ import Contact from './pages/Contact'
 import About from './pages/About'
 import Navbar from './conponent/Navbar'
 import Footer from './conponent/Footer'
+import Searchbar from './conponent/Searchbar'
 const App = () => {
   return (
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
 
   
 <Navbar/>
-
+   <Searchbar/>
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/collection' element={<Collection/>} />
